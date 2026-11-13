@@ -139,7 +139,7 @@ export default function Home() {
       </header>
 
       <section className="hero" id="inicio">
-        <div className="hero-photo"><Image src="/images/hero-jugos.png" alt="Jugos naturales de frutas tropicales preparados al momento" fill priority sizes="100vw" /></div>
+        <div className="hero-photo"><Image src="/images/hero-jugos.webp" alt="Jugos naturales de frutas tropicales preparados al momento" fill priority sizes="100vw" /></div>
         <div className="hero-shade" />
         <div className="hero-content"><span className="hero-kicker"><Sparkles size={15} /> Frescura de Yumbo en cada vaso</span><h1>Un sabor que <em>alegra tu día.</em></h1><p>{config.welcome}</p><div className="hero-actions"><a className="button-primary" href="#menu">Explorar menú <ArrowRight size={17} /></a><a className="button-ghost" href="#disponibilidad">Ver días de atención <ArrowDown size={16} /></a></div><div className="hero-location"><MapPin size={17} /><span>Parque Belalcázar, Yumbo</span></div></div>
       </section>
