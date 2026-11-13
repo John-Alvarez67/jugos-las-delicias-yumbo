@@ -2,6 +2,9 @@
 
 Sitio de demostración para consultar el menú, conocer los días de atención y preparar pedidos para recoger en el puesto de Mary Luz Giraldo.
 
+**Sitio publicado:** https://jugos-las-delicias-yumbo.vercel.app  
+**Administración:** https://jugos-las-delicias-yumbo.vercel.app/admin
+
 ## Funciones
 
 - Menú de jugos naturales, jugos con vitaminas y vitaminas por separado.
@@ -11,6 +14,7 @@ Sitio de demostración para consultar el menú, conocer los días de atención y
 - Panel para cambiar precios, disponibilidad, dirección, horario y teléfono de WhatsApp.
 
 El cliente debe pulsar **Enviar** después de abrir WhatsApp. La web guarda el pedido antes de abrirlo.
+El número de WhatsApp Business se configura en el panel privado, con el indicativo `57`. La página no envía mensajes automáticos ni necesita la API de Meta.
 
 ## Tecnologías
 
