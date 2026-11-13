@@ -77,6 +77,8 @@ export default function Home() {
   const total = details.reduce((sum, { item, product }) => sum + item.quantity * product.price, 0);
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
   const nextDate = config.availableDates.find((date) => date >= todayInBogota());
+  const naturalPrices = config.products.filter((product) => product.category === "naturales" && product.available).map((product) => product.price);
+  const lowestNaturalPrice = naturalPrices.length ? Math.min(...naturalPrices) : null;
 
   function addItem(product: Product, preparation: Preparation, flavor?: string) {
     const key = itemKey({ productId: product.id, preparation, flavor });
@@ -144,10 +146,10 @@ export default function Home() {
 
       <div className="benefits"><div><span>01</span><strong>Elige tu jugo</strong><small>Sabores naturales y vitaminas</small></div><div><span>02</span><strong>Escoge el día</strong><small>Solo fechas habilitadas</small></div><div><span>03</span><strong>Recoge en el puesto</strong><small>Sin servicio a domicilio</small></div></div>
 
-      <section className="section menu-section" id="menu"><div className="section-title"><span className="kicker">El menú</span><h2>Sabores hechos para ti</h2><p>Precios de referencia del menú oficial. Mary Luz puede editarlos cuando lo necesite.</p></div>
+      <section className="section menu-section" id="menu"><div className="section-title"><span className="kicker">El menú</span><h2>Sabores hechos para ti</h2><p>Jugos naturales preparados para disfrutar en cada visita.</p></div>
         {loadError && <div className="alert">No pudimos cargar el menú actualizado. Vuelve a intentarlo en unos minutos.</div>}
         {loading ? <div className="loading">Cargando menú…</div> : <>
-          <div className="category-title"><div><h3>Jugos naturales</h3><p>En agua o leche · vaso de 12 oz</p></div><span>Desde {formatCop(8000)}</span></div>
+          <div className="category-title"><div><h3>Jugos naturales</h3><p>En agua o leche · vaso de 12 oz</p></div>{lowestNaturalPrice !== null && <span>Desde {formatCop(lowestNaturalPrice)}</span>}</div>
           <div className="menu-grid">{config.products.filter((p) => p.category === "naturales").map((p) => <MenuCard key={p.id} product={p} flavors={flavors} onAdd={addItem} />)}</div>
           <div className="category-title"><div><h3>Jugos con vitaminas</h3><p>Elige cuántas vitaminas y tu sabor favorito</p></div></div>
           <div className="menu-grid compact">{config.products.filter((p) => p.category === "vitaminas").map((p) => <MenuCard key={p.id} product={p} flavors={flavors} onAdd={addItem} />)}</div>
